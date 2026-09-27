@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VIBE — Video & Foto</title>
+  <link rel="stylesheet" href="vibest.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="logo" href="#">VIBE<span>•</span></a>
+    <div class="top-actions">
+      <button class="search-btn" id="searchBtn">⌕</button>
+      <button class="upload-btn" id="uploadBtn">＋ Upload</button>
+      <button class="profile-btn">●</button>
+    </div>
+  </header>
+
+  <div class="search-panel" id="searchPanel">
+    <input id="searchInput" type="search" placeholder="Cari video, foto, atau pengguna...">
+  </div>
+
+  <main>
+    <section class="feed" id="feed"></section>
+
+    <section class="empty" id="emptyState">
+      <div class="empty-icon">◉</div>
+      <h2>Belum ada karya</h2>
+      <p>Upload foto atau video pertama dan karya itu akan muncul di feed.</p>
+      <button class="upload-btn" id="emptyUpload">＋ Upload sekarang</button>
+    </section>
+  </main>
+
+  <nav class="bottom-nav">
+    <button class="nav-item active">⌂<span>Beranda</span></button>
+    <button class="nav-item" id="bottomUpload">＋<span>Upload</span></button>
+    <button class="nav-item">♡<span>Aktivitas</span></button>
+    <button class="nav-item">●<span>Profil</span></button>
+  </nav>
+
+  <!-- Upload -->
+  <div class="modal" id="uploadModal">
+    <div class="modal-box">
+      <button class="close" data-close="uploadModal">×</button>
+      <div class="modal-head">
+        <span class="modal-icon">✦</span>
+        <h2>Upload Karya</h2>
+        <p>Bagikan foto atau video kamu.</p>
+      </div>
+      <form id="uploadForm">
+        <label>Nama pengguna
+          <input id="username" maxlength="30" required placeholder="@namakamu">
+        </label>
+        <label>Judul / caption
+          <textarea id="caption" maxlength="220" required placeholder="Ceritakan tentang karya kamu..."></textarea>
+        </label>
+        <label>Foto atau video
+          <input id="mediaFile" type="file" accept="image/*,video/*" required>
+        </label>
+        <div class="file-info" id="fileInfo">Maksimal 5 MB untuk mode demo.</div>
+        <button class="primary" type="submit">Publikasikan</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Comments -->
+  <div class="modal" id="commentsModal">
+    <div class="modal-box comment-box">
+      <button class="close" data-close="commentsModal">×</button>
+      <h2>Komentar</h2>
+      <div id="commentList"></div>
+      <form id="commentForm" class="comment-form">
+        <input id="commentUser" required maxlength="25" placeholder="Nama">
+        <input id="commentText" required maxlength="180" placeholder="Tulis komentar...">
+        <button class="primary" type="submit">Kirim</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="vibest.js"></script>
+</body>
+</html>
